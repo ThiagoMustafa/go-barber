@@ -1,7 +1,7 @@
-import express from "express";
-import routes from "./routes";
+import express from 'express';
+import routes from './routes';
 
-//Classe responsavel por iniciar a aplicação
+// Classe responsavel por iniciar a aplicação
 class App {
   constructor() {
     this.server = express();
@@ -11,11 +11,11 @@ class App {
   }
 
   middlewares() {
-    //Habilita a aplicação para enviar requisições e receber respostas com json
+    // Habilita a aplicação para enviar requisições e receber respostas com json
     this.server.use(express.json());
   }
 
-  //Define as rotas da api
+  // Define as rotas da api
   routes() {
     this.server.use(routes);
   }
