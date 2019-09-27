@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 import routes from './routes';
 import './database/index';
 
@@ -13,7 +14,14 @@ class App {
 
   middlewares() {
     // Habilita a aplicação para enviar requisições e receber respostas com json
+    // Enable the application to send requests with json
     this.server.use(express.json());
+
+    // Enable find files from url
+    this.server.use(
+      '/files',
+      express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
+    );
   }
 
   // Define as rotas da api
